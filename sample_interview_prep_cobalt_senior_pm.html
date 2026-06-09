@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobalt Interview Prep · Senior Product Manager, Data &amp; Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Surfaces */
+    --bg: #0e1218;
+    --bg-elevated: #161b23;
+    --bg-card: #1a2029;
+    --bg-card-hover: #1f2630;
+    --bg-warm: #1c1f24;
+
+    /* Borders */
+    --rule: #252b35;
+    --rule-strong: #353c47;
+    --rule-accent: #3a4250;
+
+    /* Text */
+    --ink: #e7e2d5;
+    --ink-soft: #b0aa9d;
+    --ink-muted: #7a766c;
+    --ink-dim: #565249;
+
+    /* Accents */
+    --navy: #5a87d6;
+    --navy-bright: #7ba3ec;
+    --blue: #6ba3ff;
+    --blue-soft: #1a2d4a;
+    --gold: #d4a553;
+    --gold-soft: #2a2218;
+    --green: #6cc28a;
+    --green-soft: #15241a;
+    --amber: #e0a04a;
+    --amber-soft: #2a2014;
+    --red: #e57670;
+    --red-soft: #2a1715;
+    --teal: #5cc6b8;
+    --teal-soft: #142421;
+
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+    --sidebar-w: 260px;
+    --rail-w: 280px;
+
+    /* Default dark theme — no overrides applied. */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 40px; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* ============ APP LAYOUT ============ */
+  .app {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr var(--rail-w);
+    min-height: 100vh;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: var(--bg-elevated);
+    border-right: 1px solid var(--rule);
+    padding: 32px 22px 24px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .sidebar::-webkit-scrollbar { width: 6px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 3px; }
+
+  .sidebar-brand {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 22px;
+  }
+  .sidebar-brand-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .sidebar-brand-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .sidebar-brand-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blue);
+  }
+  .sidebar-brand-sub {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .sidebar-section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 0 8px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .sidebar-link:hover {
+    background: var(--bg-card-hover);
+    color: var(--ink);
+  }
+  .sidebar-link.active {
+    background: var(--bg-card);
+    color: var(--ink);
+  }
+  .sidebar-link.active::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: var(--blue);
+    border-radius: 0 2px 2px 0;
+  }
+  .sidebar-link-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    width: 22px;
+    flex-shrink: 0;
+  }
+  .sidebar-link.active .sidebar-link-num { color: var(--blue); }
+
+  .sidebar-meta {
+    padding: 16px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sidebar-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12.5px;
+    gap: 12px;
+  }
+  .sidebar-meta-key {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+  .sidebar-meta-val {
+    color: var(--ink);
+    font-weight: 500;
+    text-align: right;
+    font-size: 12.5px;
+  }
+
+  .sidebar-foot {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sidebar-btn {
+    background: var(--bg-card);
+    color: var(--ink);
+    border: 1px solid var(--rule-strong);
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .sidebar-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-soft);
+  }
+  .sidebar-btn-kbd {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+  .sidebar-btn:hover .sidebar-btn-kbd { color: var(--blue); border-color: var(--blue); }
+  .sidebar-btn.primary {
+    background: var(--blue);
+    color: var(--bg);
+    border-color: var(--blue);
+  }
+  .sidebar-btn.primary:hover {
+    background: var(--navy-bright);
+    color: var(--bg);
+  }
+  .sidebar-btn.primary .sidebar-btn-kbd {
+    color: var(--bg);
+    background: rgba(0,0,0,0.15);
+    border-color: rgba(0,0,0,0.2);
+  }
+  .sidebar-btn.primary-gold {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+  }
+  .sidebar-btn.primary-gold:hover {
+    background: var(--amber);
+    color: var(--bg);
+    border-color: var(--amber);
+  }
+  .sidebar-btn.primary-gold .sidebar-btn-kbd {
+    color: var(--bg);
+    background: rgba(0,0,0,0.15);
+    border-color: rgba(0,0,0,0.2);
+  }
+  .sidebar-docs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .doc-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 12px;
+    opacity: 0.85;
+  }
+  .sidebar-docs-note {
+    font-size: 11px;
+    color: var(--ink-muted);
+    line-height: 1.45;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-left: 2px solid var(--rule-strong);
+    font-style: italic;
+  }
+
+  /* ============ MOBILE MENU TOGGLE ============ */
+  .mobile-bar { display: none; }
+
+  /* ============ MAIN CONTENT ============ */
+  .main {
+    padding: 56px 64px 120px;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 0 0 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 56px;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--blue);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blue);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    line-height: 1.55;
+  }
+
+  /* ============ SECTION ============ */
+  section { margin-bottom: 88px; scroll-margin-top: 40px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .section-lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 740px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  /* ============ BRIEFING CARDS ============ */
+  .brief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+  .brief-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 26px 28px;
+    transition: border-color 0.15s;
+  }
+  .brief-card:hover { border-color: var(--rule-accent); }
+  .brief-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-family: var(--serif);
+  }
+  .brief-card-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .brief-card-body {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .brief-card-body strong { color: var(--ink); font-weight: 600; }
+  .brief-card-body em { color: var(--gold); font-style: normal; font-weight: 500; }
+
+  /* ============ PULL QUOTE ============ */
+  .pull {
+    border-left: 3px solid var(--blue);
+    padding: 6px 0 6px 30px;
+    margin: 32px 0;
+    max-width: 820px;
+  }
+  .pull-text {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .pull-cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    margin-top: 12px;
+  }
+
+  /* ============ VALUES ============ */
+  .values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .value-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px;
+    padding: 22px 24px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .value-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--rule-accent);
+    border-left-color: var(--blue);
+  }
+  .value-card-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+  }
+  .value-card-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .value-card-proof {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .value-card-proof strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .value-card-proof em { color: var(--gold); font-style: normal; font-weight: 500; }
+
+  /* ============ PROOF MATRIX ============ */
+  .matrix {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .matrix-head {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    background: var(--bg-warm);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .matrix-head-cell {
+    padding: 14px 22px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .matrix-head-cell:first-child { border-right: 1px solid var(--rule); }
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.1s;
+  }
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-row:hover { background: var(--bg-card-hover); }
+  .matrix-cell {
+    padding: 14px 22px;
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .matrix-cell:first-child {
+    border-right: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .matrix-cell:last-child { color: var(--ink); }
+  .matrix-row.gap { background: var(--amber-soft); }
+  .matrix-row.gap:hover { background: var(--amber-soft); }
+  .matrix-row.gap .matrix-cell:first-child { color: var(--amber); }
+  .matrix-row.gap .matrix-cell:last-child { color: var(--ink); }
+  .gap-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    background: var(--amber);
+    color: var(--bg);
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 8px;
+    vertical-align: 2px;
+    font-weight: 600;
+  }
+
+  /* ============ STAR ANSWERS ============ */
+  .star-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .star-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .star-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-soft);
+  }
+
+  .q-block {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .q-block:hover { border-color: var(--rule-accent); }
+  .q-block.open {
+    border-color: var(--blue);
+  }
+  .q-header {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    transition: background 0.1s;
+  }
+  .q-header:hover { background: var(--bg-card-hover); }
+  .q-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--blue);
+    font-weight: 500;
+    flex-shrink: 0;
+    width: 24px;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    flex: 1;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+  .q-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    background: var(--bg-warm);
+    padding: 4px 9px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    font-weight: 500;
+    border: 1px solid var(--rule);
+  }
+  .q-tag.priority {
+    color: var(--bg);
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+  .q-chevron {
+    font-size: 14px;
+    color: var(--ink-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .q-block.open .q-chevron { transform: rotate(180deg); color: var(--blue); }
+
+  .q-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  .q-block.open .q-body { max-height: 3500px; transition: max-height 0.5s ease-in; }
+  .q-body-inner {
+    padding: 8px 24px 26px;
+    border-top: 1px solid var(--rule);
+  }
+  .star-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--rule);
+    align-items: start;
+  }
+  .star-row:last-child { border-bottom: none; }
+  .star-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 600;
+    padding: 4px 0;
+    text-align: right;
+  }
+  .star-label.s { color: var(--teal); }
+  .star-label.t { color: var(--blue); }
+  .star-label.a { color: var(--gold); }
+  .star-label.r { color: var(--green); }
+  .star-label.gen { color: var(--ink-muted); }
+  .star-content {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .star-content strong {
+    color: var(--blue);
+    font-weight: 600;
+  }
+  .star-content em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* ============ ASK ============ */
+  .ask-list { display: flex; flex-direction: column; gap: 14px; }
+  .ask-item {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--teal);
+    border-radius: 8px;
+    padding: 20px 26px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: border-color 0.15s;
+  }
+  .ask-item:hover { border-color: var(--rule-accent); border-left-color: var(--teal); }
+  .ask-item.hold {
+    border-left-color: var(--gold);
+    background: var(--bg-card);
+    opacity: 0.85;
+  }
+  .ask-item.hold:hover { border-left-color: var(--gold); }
+  .ask-item.hold .ask-num { color: var(--gold); }
+  .ask-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--blue);
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 10px;
+  }
+  .ask-group-title:first-of-type { margin-top: 0; }
+  .ask-group-title.gold { color: var(--gold); }
+  .ask-group-note {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    line-height: 1.55;
+    font-style: italic;
+    max-width: 720px;
+  }
+  .ask-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 2px;
+    width: 24px;
+  }
+  .ask-item.backup .ask-num { color: var(--ink-muted); }
+  .ask-text {
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .ask-item.backup .ask-text { font-style: italic; color: var(--ink-soft); }
+  .ask-text strong { color: var(--blue); font-weight: 600; }
+
+  /* ============ WATCH POINTS ============ */
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .watch-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 22px 26px;
+    position: relative;
+    border-left-width: 4px;
+    transition: background 0.15s;
+  }
+  .watch-card:hover { background: var(--bg-card-hover); }
+  .watch-card.high { border-left-color: var(--red); }
+  .watch-card.medium { border-left-color: var(--amber); }
+  .watch-card.low { border-left-color: var(--green); }
+  .watch-priority {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .watch-card.high .watch-priority { color: var(--red); }
+  .watch-card.medium .watch-priority { color: var(--amber); }
+  .watch-card.low .watch-priority { color: var(--green); }
+  .watch-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .watch-body {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .watch-body strong { color: var(--ink); font-weight: 600; }
+  .watch-body em { color: var(--gold); font-style: normal; font-weight: 500; }
+
+  /* ============ CHECKLIST ============ */
+  .checklist {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 28px 32px;
+  }
+  .checklist-group { margin-bottom: 28px; }
+  .checklist-group:last-of-type { margin-bottom: 0; }
+  .checklist-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--blue);
+    margin-bottom: 12px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .check-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+  .check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--blue);
+    cursor: pointer;
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+  .check-label {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .check-label strong { color: var(--blue); font-weight: 600; }
+  .check-item.done .check-label {
+    color: var(--ink-dim);
+    text-decoration: line-through;
+    text-decoration-color: var(--rule-strong);
+  }
+  .check-item.done .check-label strong { color: var(--ink-muted); }
+
+  .check-progress {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .check-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .check-bar-fill {
+    height: 100%;
+    background: var(--blue);
+    transition: width 0.3s;
+    border-radius: 3px;
+  }
+  .check-count {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    margin-top: 100px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 13px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .footer-brand-sub {
+    margin-top: 6px;
+    color: var(--ink-muted);
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: right;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ============ RIGHT RAIL (CHECKLIST) ============ */
+  .checklist-rail {
+    background: var(--bg-elevated);
+    border-left: 1px solid var(--rule);
+    padding: 32px 22px 28px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .checklist-rail::-webkit-scrollbar { width: 6px; }
+  .checklist-rail::-webkit-scrollbar-track { background: transparent; }
+  .checklist-rail::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 3px; }
+
+  .rail-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+  }
+  .rail-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .rail-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .rail-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .rail-progress-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .rail-progress-fill {
+    height: 100%;
+    background: var(--blue);
+    transition: width 0.3s;
+    border-radius: 3px;
+  }
+  .rail-progress-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .check-group { display: flex; flex-direction: column; }
+  .check-group-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 9px 8px;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    font-weight: 600;
+    text-align: left;
+    border-radius: 5px;
+    transition: background 0.1s, color 0.15s;
+  }
+  .check-group-head:hover {
+    background: var(--bg-card-hover);
+    color: var(--ink);
+  }
+  .cg-chevron {
+    font-size: 9px;
+    transition: transform 0.2s;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+    line-height: 1;
+    width: 10px;
+  }
+  .check-group.collapsed .cg-chevron { transform: rotate(-90deg); }
+  .cg-title { flex: 1; }
+  .cg-progress {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .cg-done {
+    display: none;
+    color: var(--green);
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+  }
+  .check-group.complete .cg-done { display: inline; }
+  .check-group.complete .cg-progress { display: none; }
+  .check-group.complete .check-group-head { color: var(--green); }
+
+  .check-group-items {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 4px 6px;
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+  }
+  .check-group.collapsed .check-group-items {
+    max-height: 0;
+    padding: 0 4px;
+  }
+
+  .check-group .check-item {
+    padding: 7px 8px;
+    gap: 10px;
+    cursor: pointer;
+    align-items: flex-start;
+    display: flex;
+    border-radius: 4px;
+    transition: background 0.1s;
+  }
+  .check-group .check-item:hover { background: var(--bg-card); }
+  .check-group .check-item input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    accent-color: var(--blue);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .check-group .check-label {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ink);
+    flex: 1;
+  }
+  .check-group .check-item.done .check-label {
+    color: var(--ink-dim);
+    text-decoration: line-through;
+    text-decoration-color: var(--rule-strong);
+  }
+
+  /* Floating action button (used below the desktop breakpoint) */
+  .rail-fab {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 50;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue);
+    color: var(--bg);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 24px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    transition: transform 0.15s;
+  }
+  .rail-fab:hover { transform: translateY(-2px); }
+  .rail-fab-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: rgba(0,0,0,0.18);
+    padding: 2px 8px;
+    border-radius: 12px;
+  }
+  .rail-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 90;
+  }
+  .rail-overlay.open { display: block; }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 1200px) {
+    .app { grid-template-columns: var(--sidebar-w) 1fr; }
+    .checklist-rail {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      width: 320px;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 100;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.5);
+    }
+    .checklist-rail.open { transform: translateX(0); }
+    .rail-fab { display: inline-flex; }
+  }
+
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 280px;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 100;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .mobile-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .mobile-bar-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .mobile-bar-title em { color: var(--blue); font-style: italic; }
+    .mobile-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--rule-strong);
+      color: var(--ink);
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 90;
+    }
+    .sidebar-overlay.open { display: block; }
+    .main { padding: 32px 24px 80px; }
+    .hero-title { font-size: 34px; }
+    .hero-sub { font-size: 16px; }
+    .section-title { font-size: 26px; }
+    .matrix-head { grid-template-columns: 1fr; }
+    .matrix-head-cell:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .matrix-row { grid-template-columns: 1fr; }
+    .matrix-cell:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .star-row { grid-template-columns: 1fr; gap: 6px; }
+    .star-label { text-align: left; padding: 0; }
+    .q-text { font-size: 16px; }
+    .q-header { padding: 14px 18px; gap: 10px; }
+    .q-tag { display: none; }
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    body { background: white; color: #000; font-size: 11pt; }
+    .app { display: block; }
+    .sidebar, .mobile-bar, .sidebar-overlay, .star-controls, .check-progress, .checklist-rail, .rail-fab, .rail-overlay { display: none !important; }
+    .main { padding: 0; max-width: none; }
+    .hero { padding: 0 0 20px; page-break-after: avoid; }
+    .hero-title { font-size: 28pt; color: #1F3864; }
+    .hero-title em { color: #2E75B6; }
+    .hero-sub, .section-lede { color: #4a4a4a; }
+    .hero-eyebrow, .section-num, .matrix-head-cell, .checklist-group-title { color: #2E75B6; }
+    .section-title, .brief-card-title, .value-card-name, .q-text, .watch-title { color: #1F3864; }
+    .pull-text { color: #1F3864; }
+    section { page-break-inside: avoid; margin-bottom: 30px; }
+    .q-body { max-height: none !important; overflow: visible !important; }
+    .q-block { page-break-inside: avoid; }
+    .q-block, .brief-card, .value-card, .watch-card, .ask-item, .matrix, .checklist {
+      background: #fff !important;
+      border: 1px solid #ccc !important;
+      color: #1a1a1a !important;
+    }
+    .star-content, .brief-card-body, .value-card-proof, .watch-body, .ask-text, .check-label, .matrix-cell {
+      color: #1a1a1a !important;
+    }
+    .star-content strong, .ask-text strong, .check-label strong, .watch-body strong { color: #1F3864 !important; }
+    .matrix-row.gap { background: #f7eed7 !important; }
+    .q-chevron { display: none; }
+    .footer { page-break-before: avoid; color: #6b6b6b; }
+    .footer-brand { color: #1F3864; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MOBILE TOP BAR ============ -->
+<div class="mobile-bar">
+  <div class="mobile-bar-title">Cobalt <em>// Interview brief</em></div>
+  <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Open navigation">☰</button>
+</div>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-eyebrow">Interview brief</div>
+      <div class="sidebar-brand-title">Cobalt <em>Senior PM</em></div>
+      <div class="sidebar-brand-sub">Data &amp; Insights · 45-min hiring manager round with Devin</div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Sections</div>
+      <nav class="sidebar-nav">
+        <a href="#top" class="sidebar-link" data-target="top">
+          <span class="sidebar-link-num">00</span><span>Overview</span>
+        </a>
+        <a href="#company" class="sidebar-link" data-target="company">
+          <span class="sidebar-link-num">01</span><span>Company</span>
+        </a>
+        <a href="#matrix" class="sidebar-link" data-target="matrix">
+          <span class="sidebar-link-num">02</span><span>Proof matrix</span>
+        </a>
+        <a href="#answers" class="sidebar-link" data-target="answers">
+          <span class="sidebar-link-num">03</span><span>Q&amp;A</span>
+        </a>
+        <a href="#ask" class="sidebar-link" data-target="ask">
+          <span class="sidebar-link-num">04</span><span>Ask Devin</span>
+        </a>
+        <a href="#watch" class="sidebar-link" data-target="watch">
+          <span class="sidebar-link-num">05</span><span>Watch points</span>
+        </a>
+      </nav>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Details</div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-row">
+          <span class="sidebar-meta-key">Format</span>
+          <span class="sidebar-meta-val">45-min video</span>
+        </div>
+        <div class="sidebar-meta-row">
+          <span class="sidebar-meta-key">With</span>
+          <span class="sidebar-meta-val">Devin Cho (PST)</span>
+        </div>
+        <div class="sidebar-meta-row">
+          <span class="sidebar-meta-key">Comp</span>
+          <span class="sidebar-meta-val">$185K–$225K + equity</span>
+        </div>
+        <div class="sidebar-meta-row">
+          <span class="sidebar-meta-key">Hours</span>
+          <span class="sidebar-meta-val">Remote, US time zones</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-foot">
+      <button class="sidebar-btn" onclick="expandAll()">
+        <span>Expand all answers</span>
+        <span class="sidebar-btn-kbd">E</span>
+      </button>
+      <button class="sidebar-btn" onclick="collapseAll()">
+        <span>Collapse all</span>
+        <span class="sidebar-btn-kbd">C</span>
+      </button>
+      <button class="sidebar-btn primary" onclick="window.print()">
+        <span>Print / Save PDF</span>
+        <span class="sidebar-btn-kbd">P</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main" id="top">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-eyebrow">Interview preparation · Confidential</div>
+      <h1 class="hero-title">Senior Product Manager, <em>Data &amp; Insights</em>.</h1>
+      <p class="hero-sub">A 45-minute hiring-manager round at Cobalt with Devin Cho, focused on product judgment, how you drive activation and retention with data, hands-on AI in the product, and how you lead a squad through ambiguity.</p>
+    </header>
+
+    <!-- COMPANY -->
+    <section id="company">
+      <div class="section-head">
+        <div class="section-num">§ 01</div>
+        <h2 class="section-title">The company, in context</h2>
+      </div>
+      <p class="section-lede">Cobalt sells payment and ledger infrastructure to other fintechs. The rails are mature and trusted. The data layer on top of them is not, and that is the opening. This role exists because Cobalt's customers now want insight, not just plumbing, and someone has to turn raw transaction data into a product they will pay more for.</p>
+
+      <div class="brief-grid">
+        <div class="brief-card">
+          <div class="brief-card-icon">C</div>
+          <h3 class="brief-card-title">What Cobalt is now</h3>
+          <p class="brief-card-body">Series C payments-and-ledger infrastructure for fintechs and platforms. The core rails are stable and trusted. The bet now is moving up the stack from plumbing into <strong>analytics and decisioning</strong> that customers will pay a premium for.</p>
+        </div>
+        <div class="brief-card">
+          <div class="brief-card-icon">⌘</div>
+          <h3 class="brief-card-title">How they actually work</h3>
+          <p class="brief-card-body">Small, autonomous product squads. Written specs and async review carry the decisions, not meetings. ~350 people, remote-first across US time zones. Devin's org owns the data-products line. Your Flowstate squad ran the same way: <em>written-first, pod-aligned</em>.</p>
+        </div>
+        <div class="brief-card">
+          <div class="brief-card-icon">→</div>
+          <h3 class="brief-card-title">Why this role exists</h3>
+          <p class="brief-card-body">The Data &amp; Insights line is early. The Senior PM owns the <strong>activation-to-retention story</strong> for the new analytics product, partners with a three-pod eng team, and is expected to ship the first AI-assisted insight features this year.</p>
+        </div>
+        <div class="brief-card">
+          <div class="brief-card-icon">⚡</div>
+          <h3 class="brief-card-title">Read for the room</h3>
+          <p class="brief-card-body"><strong>Devin Cho</strong> has said publicly that Cobalt's hardest product problem is <em>"activation, not acquisition"</em> — customers sign but don't reach first value. The JD's emphasis on time-to-first-insight is that same problem restated, so <strong>lead with your activation work</strong>. Cobalt recently shipped an AI "anomaly explainer," so expect a <strong>build-vs-buy</strong> conversation on AI features. Your LLM summaries work and eval harness are the right answer to that.</p>
+        </div>
+      </div>
+
+      <div class="pull">
+        <p class="pull-text">"You'll own the insight products that turn Cobalt's transaction data into decisions our customers act on, from first activation through long-term retention."</p>
+        <p class="pull-cite">From the Cobalt job description, verbatim</p>
+      </div>
+    </section>
+
+    <!-- PROOF MATRIX -->
+    <section id="matrix">
+      <div class="section-head">
+        <div class="section-num">§ 02</div>
+        <h2 class="section-title">Requirements to proof</h2>
+      </div>
+      <p class="section-lede">Every JD criterion mapped to your strongest evidence. One row is a genuine gap. It is flagged, not hidden, so you walk in knowing exactly where to lead with ramp speed instead of claiming depth you don't have.</p>
+
+      <div class="matrix">
+        <div class="matrix-head">
+          <div class="matrix-head-cell">What Cobalt wants</div>
+          <div class="matrix-head-cell">Your strongest proof</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">7+ years product management in B2B SaaS</div>
+          <div class="matrix-cell">9 years PM across Flowstate (B2B workflow analytics), Cartolab (geospatial data), and Ledgerly (fintech). 4 years at the Senior PM level.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Own activation and retention for a data product</div>
+          <div class="matrix-cell">At Flowstate, took the self-serve analytics product $0 → $4.2M ARR in 18 months. Raised activation 22% → 38% and cut time-to-first-insight from 3 days to 4 hours.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Turn raw data into customer-facing insight features</div>
+          <div class="matrix-cell">Shipped "Signal," an in-product layer that surfaced usage anomalies and recommended next actions. Drove a 15-point lift in week-4 retention.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Hands-on with AI/LLM features in product</div>
+          <div class="matrix-cell">Led the LLM-backed "insight summaries" feature (plain-language reads of dashboards). Ran the build-vs-buy eval and the eval harness that tracked hallucination rate before launch.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Lead a cross-functional squad</div>
+          <div class="matrix-cell">Led a 6-person squad across 3 eng pods plus design and data science. PM of record end to end, from discovery to launch to iteration.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Strong discovery and prioritization</div>
+          <div class="matrix-cell">Ran continuous discovery. Killed a planned "report builder" after 9 interviews showed it solved the wrong problem, and redirected the quarter to the insights layer.</div>
+        </div>
+        <div class="matrix-row gap">
+          <div class="matrix-cell"><span class="gap-badge">Partial</span>Deep payments / ledger-rails domain</div>
+          <div class="matrix-cell">2 years of fintech at Ledgerly and heavy transaction-data work, but not deep payments-rails experience. Nearest proof: ramped on ledger semantics fast at Ledgerly and shipped inside the first quarter. Name it honestly if asked; pair it with how quickly you ramp.</div>
+        </div>
+        <div class="matrix-row">
+          <div class="matrix-cell">Partner with GTM on pricing and packaging</div>
+          <div class="matrix-cell">Co-built the usage-based pricing for Flowstate's analytics tier with Sales and Finance, and defended it in two QBRs.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAR ANSWERS -->
+    <section id="answers">
+      <div class="section-head">
+        <div class="section-num">§ 03</div>
+        <h2 class="section-title">Likely questions, with answers</h2>
+      </div>
+      <p class="section-lede">Eight answers prepared. Q1 is your opener. Q4 (AI build vs. buy) and Q5 (activation) are the two that decide this round, and Devin cares most about activation. Keep STAR answers to ~90 seconds and lead with the metric, not the setup.</p>
+
+      <div class="star-controls">
+        <button class="star-btn" onclick="expandAll()">Expand all</button>
+        <button class="star-btn" onclick="collapseAll()">Collapse all</button>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q1</div>
+          <div class="q-text">Why Cobalt? Why this role?</div>
+          <div class="q-tag">Opener</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label gen">Approach</div>
+            <div class="star-content">Not behavioral. ~60 seconds, genuine. Lead with the specific problem you want, not flattery. The honest hook here is that you've spent four years turning data into a product people activate on, and that is exactly the problem Cobalt just decided to solve.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label gen">Script</div>
+            <div class="star-content">I've spent the last four years on one problem: taking raw data and turning it into something a customer activates on and keeps using. At Flowstate that meant going from <strong>zero to $4.2M ARR</strong> on a self-serve analytics product and roughly doubling activation. Cobalt is at the exact moment where that work starts: the rails are solid, and the bet now is the insight layer on top. <strong>That's the part I'm best at, and it's the part you're hiring for.</strong> I'm also not new to fintech data, so the domain isn't foreign.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q2</div>
+          <div class="q-text">Walk me through your background.</div>
+          <div class="q-tag">Career arc</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label gen">Frame</div>
+            <div class="star-content">Three roles, one through-line: <em>I take data products from raw and unloved to something customers reach value on fast.</em> Keep each phase to a line, land on the present.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label s">Ledgerly</div>
+            <div class="star-content">Started in fintech as an APM, then PM. Learned ledger and transaction semantics the hard way, shipping reconciliation tooling. This is where the data instinct started.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label t">Cartolab</div>
+            <div class="star-content">PM on a geospatial data platform. Bigger scale, messier data, first real taste of turning a firehose into something a non-expert could use.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Flowstate</div>
+            <div class="star-content">Senior PM for four years. Owned the self-serve analytics product end to end: <strong>$0 → $4.2M ARR</strong>, activation 22% → 38%, time-to-first-insight cut from 3 days to 4 hours, and the AI summaries layer on top. That's the job Cobalt is describing, one stage earlier.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q3</div>
+          <div class="q-text">Tell me about a product you took from zero in an ambiguous spot.</div>
+          <div class="q-tag">STAR</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label s">Situation</div>
+            <div class="star-content">Flowstate had a powerful workflow engine but customers only saw their own data as flat exports. Leadership wanted a self-serve analytics product, but there was no spec, no clear buyer, and an assumption that "more dashboards" was the answer.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label t">Task</div>
+            <div class="star-content">Define and ship a product that got customers to a useful insight on their own, fast enough that they'd pay for it, without a playbook to copy.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label a">Action</div>
+            <div class="star-content">Started from the activation problem, not the feature list. Instrumented where new accounts stalled and found the wall was time-to-first-insight: three days of setup before anyone saw value. Reframed the product around collapsing that. Shipped opinionated default views instead of a blank dashboard builder, wired in templated insights for the top three jobs, and ran a weekly discovery loop with design and data science. <strong>Made the call to cut configurability in v1</strong> to protect speed-to-value.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Result</div>
+            <div class="star-content">Time-to-first-insight went from 3 days to 4 hours. Activation rose 22% → 38%. The product reached <strong>$4.2M ARR in 18 months</strong>. <em>The right default beats the flexible blank slate when the goal is first value.</em></div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q4</div>
+          <div class="q-text">How do you use AI in the product, and what did you build vs. buy?</div>
+          <div class="q-tag priority">High priority</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label gen">Why it matters</div>
+            <div class="star-content">Cobalt just shipped an AI feature, so Devin will probe whether you reason about AI like an owner or a consumer. <strong>Your edge is the eval discipline</strong>, not the model choice. Lead with how you decided and how you measured, then the outcome.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label s">Bought (and why)</div>
+            <div class="star-content">For the LLM itself, we bought: a hosted frontier model via API. Building or fine-tuning our own made no sense for plain-language summaries of dashboards, where the differentiation is the data and the guardrails, not the weights.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label a">Built (the part that mattered)</div>
+            <div class="star-content">We built the layer around the model: a <strong>retrieval step</strong> that grounded every summary in the customer's actual metrics, a <strong>prompt and schema</strong> that forced cited numbers, and an <strong>eval harness</strong> that scored each release for hallucination rate and numeric accuracy against a labeled set before it shipped. I set the bar that we would not ship a summary feature until measured hallucination on numbers was under our threshold.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Result &amp; closing</div>
+            <div class="star-content">The summaries shipped, were trusted because the numbers were right, and contributed to the week-4 retention lift on Signal. <em>The model is a commodity. The judgment is deciding what to build around it and how you'll know it's safe to ship. That's the part I own.</em></div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q5</div>
+          <div class="q-text">How do you think about activation and time-to-first-value?</div>
+          <div class="q-tag priority">High priority</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label gen">Frame</div>
+            <div class="star-content">This is Devin's stated hardest problem, so this is the answer to over-prepare. Define first value concretely, then show the loop you run to shorten the path to it. Anchor every claim in the Flowstate numbers.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label a">How I work it</div>
+            <div class="star-content">I define one <strong>first-value moment</strong> per product and make it measurable, not a vibe. At Flowstate it was "sees an insight that's true about their own data." Then I instrument the path to it, find the single biggest stall, and remove it before adding anything new. The discipline is <strong>refusing to add features until the activation wall is down</strong>, because new surface area usually moves the wall further away.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Proof</div>
+            <div class="star-content">That approach moved time-to-first-insight from 3 days to 4 hours and activation from 22% to 38%. Same product, same model, mostly removal rather than addition. For Cobalt I'd want to know what your defined first-value moment is today, and whether it's instrumented yet.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q6</div>
+          <div class="q-text">Tell me about leading your squad through competing priorities or conflict.</div>
+          <div class="q-tag">STAR</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label s">Situation</div>
+            <div class="star-content">Mid-build on the analytics product, Sales pushed hard for a custom export feature for one large prospect while my squad was heads-down on the activation work that the data said mattered more for everyone.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label t">Task</div>
+            <div class="star-content">Hold the roadmap on what the evidence supported without torching the relationship with Sales or the deal.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label a">Action</div>
+            <div class="star-content">Didn't argue in the abstract. Put the activation funnel data next to the one-deal request and showed the squad and Sales the same numbers. Offered a smaller, reusable version of the export that served the prospect and the broader base, and time-boxed it. <strong>Made the tradeoff visible instead of making it a turf fight.</strong></div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Result</div>
+            <div class="star-content">The prospect got an export that shipped to everyone, the activation work stayed on track, and Sales started bringing me funnel data instead of feature demands. The disagreement became a shared decision.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q7</div>
+          <div class="q-text">A time discovery changed your direction.</div>
+          <div class="q-tag">STAR</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label s">Situation</div>
+            <div class="star-content">We had a "report builder" committed for the quarter. It was the obvious-sounding answer to "customers want more from their data," and it had executive support.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label t">Task</div>
+            <div class="star-content">Validate it was the right build before sinking a quarter of eng into it.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label a">Action</div>
+            <div class="star-content">Ran 9 discovery interviews with active and churned accounts. The pattern was clear: customers didn't want to build reports, they wanted to be <em>told what mattered</em> without building anything. Brought the recordings and a tight summary to leadership and <strong>recommended killing the report builder</strong> in favor of the insights layer.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label r">Result</div>
+            <div class="star-content">We cut it and redirected the quarter to Signal, the insights layer, which drove the 15-point week-4 retention lift. Killing the wrong build was the highest-leverage decision of the quarter.</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header" onclick="toggleQ(this)">
+          <div class="q-num">Q8</div>
+          <div class="q-text">How do you partner with GTM on pricing and packaging?</div>
+          <div class="q-tag">Domain</div>
+          <div class="q-chevron">▾</div>
+        </div>
+        <div class="q-body"><div class="q-body-inner">
+          <div class="star-row">
+            <div class="star-label gen">Frame</div>
+            <div class="star-content">Cobalt wants to charge a premium for the insight layer, so pricing is part of this PM job, not someone else's. Show you've done it, not just opined on it.</div>
+          </div>
+          <div class="star-row">
+            <div class="star-label gen">Script</div>
+            <div class="star-content">I treat pricing as a product decision made with GTM, not handed to them. For Flowstate's analytics tier I co-built <strong>usage-based pricing</strong> with Sales and Finance: we anchored the metric to the value customers actually got (insights surfaced, not seats), modeled it against real account usage, and pressure-tested edge cases where the metric could punish a good customer. I defended it in two QBRs when expansion came in under plan and we adjusted the tier boundaries based on where accounts actually sat. The principle: <strong>price the value moment, then watch the data and correct.</strong></div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- ASK -->
+    <section id="ask">
+      <div class="section-head">
+        <div class="section-num">§ 04</div>
+        <h2 class="section-title">Questions to ask Devin</h2>
+      </div>
+      <p class="section-lede">This is the hiring manager. Devin can go deep on the product, the team, and what success looks like, so use it. Pick 3 or 4 from the first group. The strategic question signals you already think like the owner of this line.</p>
+
+      <h3 class="ask-group-title">Product &amp; team</h3>
+      <p class="ask-group-note">Questions Devin can answer directly. Prioritize these.</p>
+      <div class="ask-list">
+        <div class="ask-item">
+          <div class="ask-num">01</div>
+          <div class="ask-text"><strong>What's the defined first-value moment for the analytics product today,</strong> and is it instrumented yet, or would that be the first thing to build?</div>
+        </div>
+        <div class="ask-item">
+          <div class="ask-num">02</div>
+          <div class="ask-text"><strong>How is the three-pod eng team organized,</strong> and what's the current split between platform/data work and customer-facing features?</div>
+        </div>
+        <div class="ask-item">
+          <div class="ask-num">03</div>
+          <div class="ask-text"><strong>The anomaly explainer already shipped.</strong> What did you learn from it about how much customers trust AI-generated insight, and where did it fall short?</div>
+        </div>
+        <div class="ask-item">
+          <div class="ask-num">04</div>
+          <div class="ask-text"><strong>What does success look like at 6 and 12 months</strong> for whoever takes this role? Is it an activation number, a revenue number, or shipped surface area?</div>
+        </div>
+      </div>
+
+      <h3 class="ask-group-title">One strategic question</h3>
+      <p class="ask-group-note">Signals you think about the line, not just the next feature.</p>
+      <div class="ask-list">
+        <div class="ask-item">
+          <div class="ask-num">05</div>
+          <div class="ask-text">As the data line matures, <strong>does Cobalt see insight as a premium tier on top of the rails, or eventually a standalone product</strong> with its own buyer? How that's framed changes what I'd optimize for first.</div>
+        </div>
+      </div>
+
+      <h3 class="ask-group-title gold">Hold for the panel / exec round</h3>
+      <p class="ask-group-note">Bigger questions better answered by the broader team. Bring them next round.</p>
+      <div class="ask-list">
+        <div class="ask-item hold">
+          <div class="ask-num">H1</div>
+          <div class="ask-text">How does the data line's roadmap get reconciled with the core rails roadmap when they compete for the same eng capacity?</div>
+        </div>
+        <div class="ask-item hold">
+          <div class="ask-num">H2</div>
+          <div class="ask-text">What's the appetite for build-vs-buy on AI going forward, and who owns that decision once features get more ambitious than summaries?</div>
+        </div>
+        <div class="ask-item hold">
+          <div class="ask-num">H3</div>
+          <div class="ask-text">How does Cobalt think about data access and customer trust as the insight products get more powerful?</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WATCH POINTS -->
+    <section id="watch">
+      <div class="section-head">
+        <div class="section-num">§ 05</div>
+        <h2 class="section-title">Watch points</h2>
+      </div>
+      <p class="section-lede">The signals to manage during the call. Color-coded by priority.</p>
+
+      <div class="watch-grid">
+        <div class="watch-card high">
+          <div class="watch-priority">⬤ High priority</div>
+          <h3 class="watch-title">Activation is Devin's hot button</h3>
+          <p class="watch-body">He's said it's Cobalt's hardest problem. <strong>Q5 is the answer to nail.</strong> Define first value concretely, then show the removal-first loop and the 22% → 38% proof. Don't let this turn into a generic "I love data" answer.</p>
+        </div>
+        <div class="watch-card high">
+          <div class="watch-priority">⬤ High priority</div>
+          <h3 class="watch-title">Be honest about the payments-rails gap</h3>
+          <p class="watch-body">The one real gap (matrix row 7). If Devin probes deep rails experience, <strong>don't oversell</strong>. Name it, then pivot to how fast you ramped on ledger semantics at Ledgerly. Honesty here reads as senior; bluffing reads as junior.</p>
+        </div>
+        <div class="watch-card medium">
+          <div class="watch-priority">⬤ Medium priority</div>
+          <h3 class="watch-title">AI build-vs-buy will come up</h3>
+          <p class="watch-body">They just shipped an AI feature. <strong>Q4 is ready.</strong> Lead with the eval harness and the "don't ship until hallucination is under threshold" bar, not the model name. The discipline is the differentiator.</p>
+        </div>
+        <div class="watch-card medium">
+          <div class="watch-priority">⬤ Medium priority</div>
+          <h3 class="watch-title">This is a builder role, not a caretaker</h3>
+          <p class="watch-body">The line is early. Lead with zero-to-one (<strong>Q3</strong>) and the kill decision (<strong>Q7</strong>). Show you start from the activation problem, not a backlog you inherited.</p>
+        </div>
+        <div class="watch-card low">
+          <div class="watch-priority">⬤ Manage normally</div>
+          <h3 class="watch-title">It's a 45-minute HM round</h3>
+          <p class="watch-body">Enough time for 4 or 5 real answers, not all eight. Let Devin steer. The goal is a strong "yes, advance to the panel," not a complete recital. Keep answers tight and leave room for his questions.</p>
+        </div>
+        <div class="watch-card low">
+          <div class="watch-priority">⬤ Manage normally</div>
+          <h3 class="watch-title">Comp</h3>
+          <p class="watch-body">$185K–$225K + equity. Your zero-to-one record and the activation numbers put you in the upper half of the band. <strong>Know your number before the call</strong> in case he asks, but defer specifics to the recruiter process if you'd rather.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">Go get it, Priya.</div>
+        <div class="footer-brand-sub">The record is real. Lead with the build, land the number.</div>
+      </div>
+      <div class="footer-meta">
+        Interview brief · Cobalt<br>
+        Senior Product Manager, Data &amp; Insights
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ============ RIGHT RAIL (CHECKLIST) ============ -->
+  <aside class="checklist-rail" id="checklist-rail">
+    <div class="rail-header">
+      <div class="rail-eyebrow">Pre-flight</div>
+      <div class="rail-title">Checklist</div>
+      <div class="rail-progress-row">
+        <div class="rail-progress-bar"><div class="rail-progress-fill" id="check-fill" style="width: 0%"></div></div>
+        <div class="rail-progress-count" id="check-count">0 / 21</div>
+      </div>
+    </div>
+
+    <div class="check-group" data-group="prep">
+      <button class="check-group-head" onclick="toggleCheckGroup(this)">
+        <span class="cg-chevron">▾</span>
+        <span class="cg-title">24 hours before</span>
+        <span class="cg-progress">0/6</span>
+        <span class="cg-done">✓</span>
+      </button>
+      <div class="check-group-items">
+        <label class="check-item"><input type="checkbox" data-key="prep1"><span class="check-label">Reread the Cobalt JD</span></label>
+        <label class="check-item"><input type="checkbox" data-key="prep2"><span class="check-label">Skim this brief; expand all answers once (press E)</span></label>
+        <label class="check-item"><input type="checkbox" data-key="prep3"><span class="check-label">Practice your opener out loud, ~60 seconds</span></label>
+        <label class="check-item"><input type="checkbox" data-key="prep4"><span class="check-label">Rehearse Q3 (zero-to-one) and Q5 (activation)</span></label>
+        <label class="check-item"><input type="checkbox" data-key="prep5"><span class="check-label">Confirm your salary target number</span></label>
+        <label class="check-item"><input type="checkbox" data-key="prep6"><span class="check-label">Pick 3-4 questions to ask from section 04</span></label>
+      </div>
+    </div>
+
+    <div class="check-group" data-group="day">
+      <button class="check-group-head" onclick="toggleCheckGroup(this)">
+        <span class="cg-chevron">▾</span>
+        <span class="cg-title">Day of</span>
+        <span class="cg-progress">0/6</span>
+        <span class="cg-done">✓</span>
+      </button>
+      <div class="check-group-items">
+        <label class="check-item"><input type="checkbox" data-key="day1"><span class="check-label">Test audio and video 15 min before</span></label>
+        <label class="check-item"><input type="checkbox" data-key="day2"><span class="check-label">Have this brief open or printed</span></label>
+        <label class="check-item"><input type="checkbox" data-key="day3"><span class="check-label">Water on the desk</span></label>
+        <label class="check-item"><input type="checkbox" data-key="day4"><span class="check-label">Phone on silent, notifications off</span></label>
+        <label class="check-item"><input type="checkbox" data-key="day5"><span class="check-label">Notebook open for follow-ups</span></label>
+        <label class="check-item"><input type="checkbox" data-key="day6"><span class="check-label">Take a breath, speak from confidence</span></label>
+      </div>
+    </div>
+
+    <div class="check-group" data-group="call">
+      <button class="check-group-head" onclick="toggleCheckGroup(this)">
+        <span class="cg-chevron">▾</span>
+        <span class="cg-title">In the call</span>
+        <span class="cg-progress">0/6</span>
+        <span class="cg-done">✓</span>
+      </button>
+      <div class="check-group-items">
+        <label class="check-item"><input type="checkbox" data-key="call1"><span class="check-label">Open with your "why Cobalt" framing</span></label>
+        <label class="check-item"><input type="checkbox" data-key="call2"><span class="check-label">Lead with the activation metric (22%→38%, TTFV 3d→4h)</span></label>
+        <label class="check-item"><input type="checkbox" data-key="call3"><span class="check-label">On AI, lead with the eval harness, not the model</span></label>
+        <label class="check-item"><input type="checkbox" data-key="call4"><span class="check-label">Name the payments-rails gap honestly if it comes up</span></label>
+        <label class="check-item"><input type="checkbox" data-key="call5"><span class="check-label">Ask 3-4 prepared questions</span></label>
+        <label class="check-item"><input type="checkbox" data-key="call6"><span class="check-label">Ask about timeline and next steps</span></label>
+      </div>
+    </div>
+
+    <div class="check-group" data-group="after">
+      <button class="check-group-head" onclick="toggleCheckGroup(this)">
+        <span class="cg-chevron">▾</span>
+        <span class="cg-title">After</span>
+        <span class="cg-progress">0/3</span>
+        <span class="cg-done">✓</span>
+      </button>
+      <div class="check-group-items">
+        <label class="check-item"><input type="checkbox" data-key="after1"><span class="check-label">Send a thank-you note within 24 hours</span></label>
+        <label class="check-item"><input type="checkbox" data-key="after2"><span class="check-label">Note what you learned about fit</span></label>
+        <label class="check-item"><input type="checkbox" data-key="after3"><span class="check-label">Capture topics and gaps for the panel round</span></label>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- Floating button + overlay for sub-1200px viewports -->
+<button class="rail-fab" onclick="toggleRail()" aria-label="Open checklist">
+  <span>Checklist</span>
+  <span class="rail-fab-count" id="rail-fab-count">0/21</span>
+</button>
+<div class="rail-overlay" onclick="toggleRail()"></div>
+
+<script>
+// ============ ACCORDION (STAR answers) ============
+function toggleQ(header) {
+  header.parentElement.classList.toggle('open');
+}
+function expandAll() {
+  document.querySelectorAll('.q-block').forEach(b => b.classList.add('open'));
+}
+function collapseAll() {
+  document.querySelectorAll('.q-block').forEach(b => b.classList.remove('open'));
+}
+
+// ============ MOBILE SIDEBAR ============
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      document.getElementById('sidebar').classList.remove('open');
+      document.querySelector('.sidebar-overlay').classList.remove('open');
+    }
+  });
+});
+
+// ============ RIGHT RAIL TOGGLE (for sub-1200px viewports) ============
+function toggleRail() {
+  document.getElementById('checklist-rail').classList.toggle('open');
+  document.querySelector('.rail-overlay').classList.toggle('open');
+}
+
+// ============ CHECKLIST: PERSISTENCE + GROUPS ============
+const checkboxes = document.querySelectorAll('.check-group input[type="checkbox"]');
+const STORAGE_KEY = 'cobalt-senior-pm-data-insights-checklist-v1';
+const COLLAPSE_KEY = 'cobalt-senior-pm-data-insights-collapse-v1';
+
+function loadChecklist() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    checkboxes.forEach(cb => {
+      if (saved[cb.dataset.key]) {
+        cb.checked = true;
+        cb.closest('.check-item').classList.add('done');
+      }
+    });
+  } catch (e) {}
+}
+function saveChecklist() {
+  const state = {};
+  checkboxes.forEach(cb => { if (cb.checked) state[cb.dataset.key] = true; });
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+function loadCollapseState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(COLLAPSE_KEY) || '{}');
+    document.querySelectorAll('.check-group').forEach(g => {
+      if (saved[g.dataset.group]) g.classList.add('collapsed');
+    });
+  } catch (e) {}
+}
+function saveCollapseState() {
+  const state = {};
+  document.querySelectorAll('.check-group').forEach(g => {
+    if (g.classList.contains('collapsed')) state[g.dataset.group] = true;
+  });
+  try { localStorage.setItem(COLLAPSE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+function toggleCheckGroup(btn) {
+  btn.parentElement.classList.toggle('collapsed');
+  saveCollapseState();
+}
+
+function updateProgress() {
+  // Per-group counts and completion state
+  document.querySelectorAll('.check-group').forEach(group => {
+    const items = group.querySelectorAll('input[type="checkbox"]');
+    const groupTotal = items.length;
+    const groupDone = Array.from(items).filter(cb => cb.checked).length;
+    const progEl = group.querySelector('.cg-progress');
+    if (progEl) progEl.textContent = groupDone + '/' + groupTotal;
+    group.classList.toggle('complete', groupTotal > 0 && groupDone === groupTotal);
+  });
+
+  // Overall progress bar + FAB count
+  const total = checkboxes.length;
+  const done = Array.from(checkboxes).filter(cb => cb.checked).length;
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  const fill = document.getElementById('check-fill');
+  const count = document.getElementById('check-count');
+  const fabCount = document.getElementById('rail-fab-count');
+  if (fill) fill.style.width = pct + '%';
+  if (count) count.textContent = done + ' / ' + total;
+  if (fabCount) fabCount.textContent = done + '/' + total;
+}
+
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('.check-item').classList.toggle('done', cb.checked);
+    saveChecklist();
+    updateProgress();
+  });
+});
+
+loadChecklist();
+loadCollapseState();
+updateProgress();
+
+// ============ SCROLL SPY ============
+const sections = ['top', 'company', 'values', 'matrix', 'answers', 'ask', 'watch'];
+const navLinks = document.querySelectorAll('.sidebar-link');
+
+function updateActiveNav() {
+  const scrollPos = window.scrollY + 100;
+  let currentId = 'top';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollPos) currentId = id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('data-target') === currentId);
+  });
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// ============ KEYBOARD SHORTCUTS ============
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'e' || e.key === 'E') expandAll();
+  if (e.key === 'c' || e.key === 'C') collapseAll();
+  if (e.key === 'p' || e.key === 'P') { e.preventDefault(); window.print(); }
+});
+</script>
+
+</body>
+</html>

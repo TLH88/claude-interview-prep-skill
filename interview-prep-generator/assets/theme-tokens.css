@@ -1,0 +1,97 @@
+/* ============================================================
+   theme-tokens.css — Interview Prep Generator
+   ------------------------------------------------------------
+   These are the CSS custom properties that drive the look of the
+   generated brief. They already live inline in template.html (inside
+   the :root block). This file is the canonical reference for what each
+   token means and how to override it.
+
+   The template exposes a {{THEME_CSS_OVERRIDES}} hook at the end of the
+   :root block. To re-theme the output, the skill emits override lines
+   there — it does NOT edit the base tokens. Last declaration wins, so an
+   override of --bg after the defaults simply replaces it.
+
+   Default = dark theme (matches the reference document). Light and brand
+   variants are at the bottom of this file, ready to paste into the
+   {{THEME_CSS_OVERRIDES}} slot.
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces ---- */
+  --bg:            #0e1218;  /* page background (deepest) */
+  --bg-elevated:   #161b23;  /* sidebar + right rail */
+  --bg-card:       #1a2029;  /* cards, matrix, q-blocks */
+  --bg-card-hover: #1f2630;  /* card hover state */
+  --bg-warm:       #1c1f24;  /* matrix header, q-tag chips */
+
+  /* ---- Borders ---- */
+  --rule:          #252b35;  /* hairline dividers */
+  --rule-strong:   #353c47;  /* button borders, scrollbars */
+  --rule-accent:   #3a4250;  /* card hover border */
+
+  /* ---- Text ---- */
+  --ink:           #e7e2d5;  /* primary text (warm off-white) */
+  --ink-soft:      #b0aa9d;  /* secondary text */
+  --ink-muted:     #7a766c;  /* labels, captions */
+  --ink-dim:       #565249;  /* completed/struck-through text */
+
+  /* ---- Accents ----
+     --blue is the spine of the design: nav active state, section numbers,
+     primary buttons, STAR <strong>, checklist fill. Change it and the whole
+     document shifts hue. The STAR label colors (teal/blue/gold/green) are
+     semantic — keep them distinct from each other. */
+  --navy:        #5a87d6;
+  --navy-bright: #7ba3ec;
+  --blue:        #6ba3ff;  --blue-soft:  #1a2d4a;
+  --gold:        #d4a553;  --gold-soft:  #2a2218;  /* Action / emphasis <em> */
+  --green:       #6cc28a;  --green-soft: #15241a;  /* Result / low-priority / complete */
+  --amber:       #e0a04a;  --amber-soft: #2a2014;  /* gaps / medium-priority watch */
+  --red:         #e57670;  --red-soft:   #2a1715;  /* high-priority watch */
+  --teal:        #5cc6b8;  --teal-soft:  #142421;  /* Situation / ask items */
+
+  /* ---- Type ---- */
+  --serif: 'Fraunces', Georgia, serif;                                  /* headings, q-text, pull quotes */
+  --sans:  'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif; /* body */
+  --mono:  'JetBrains Mono', 'SF Mono', Menlo, monospace;               /* eyebrows, nums, labels */
+
+  /* ---- Layout ---- */
+  --sidebar-w: 260px;
+  --rail-w:    280px;
+}
+
+/* ============================================================
+   OVERRIDE RECIPES — paste the inner lines into {{THEME_CSS_OVERRIDES}}
+   ============================================================ */
+
+/* ---- LIGHT THEME ----
+   Inverts surfaces and ink, keeps accents. Paste these lines:
+
+     --bg: #f7f5ef;
+     --bg-elevated: #fffdf8;
+     --bg-card: #ffffff;
+     --bg-card-hover: #f2efe7;
+     --bg-warm: #f0ece2;
+     --rule: #e3ded2;
+     --rule-strong: #cdc6b6;
+     --rule-accent: #bcb4a1;
+     --ink: #23262b;
+     --ink-soft: #4c4f56;
+     --ink-muted: #7a766c;
+     --ink-dim: #a8a293;
+     --blue: #2E75B6;  --blue-soft: #dceaf7;
+     --gold: #b07d1e;  --gold-soft: #f5ead0;
+     --green: #2f8f57; --green-soft: #dcefe2;
+     --amber: #b9791f; --amber-soft: #f6e8d0;
+     --red:   #c2453d; --red-soft:   #f7dedc;
+     --teal:  #1f8f81; --teal-soft:  #d6efeb;
+*/
+
+/* ---- BRAND ACCENT ----
+   Use ONLY the candidate's own visual identity, never the target
+   company's brand colors. Re-point the blue spine and its soft fill:
+
+     --blue: #<candidate-accent-hex>;
+     --blue-soft: #<dark-tint-of-that-accent>;
+     --navy: #<candidate-accent-hex>;
+     --navy-bright: #<lighter-tint>;
+*/

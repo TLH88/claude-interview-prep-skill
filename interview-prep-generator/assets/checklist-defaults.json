@@ -1,0 +1,51 @@
+{
+  "_comment": "Default pre-flight checklist for the right rail. The skill uses these groups/items when the candidate has no specific preferences, then augments with candidate-specific items derived from the conversation (e.g. 'Practice Q4 out loud', a key phrase to rehearse, a panelist to review). data-key values must be unique across the whole document and stable (they are the localStorage keys). When you add or remove items, recount: the rail header 0/N, the FAB count, and each group's x/N must match the real totals. Phrasing maps placeholders like [INTERVIEWER], [COMPANY], [ROLE] to the actual inputs.",
+
+  "groups": [
+    {
+      "id": "prep",
+      "title": "24 hours before",
+      "items": [
+        { "key": "prep1", "label": "Reread the [COMPANY] job description" },
+        { "key": "prep2", "label": "Skim this brief end to end; expand all answers once (press E)" },
+        { "key": "prep3", "label": "Practice your opener out loud, keep it to ~60 seconds" },
+        { "key": "prep4", "label": "Rehearse your two strongest STAR stories" },
+        { "key": "prep5", "label": "Confirm your salary target number" },
+        { "key": "prep6", "label": "Pick 2-3 questions to ask from section 05" }
+      ]
+    },
+    {
+      "id": "day",
+      "title": "Day of",
+      "items": [
+        { "key": "day1", "label": "Test audio and video 15 min before" },
+        { "key": "day2", "label": "Have this brief open or printed" },
+        { "key": "day3", "label": "Water on the desk" },
+        { "key": "day4", "label": "Phone on silent, notifications off" },
+        { "key": "day5", "label": "Notebook open for follow-ups" },
+        { "key": "day6", "label": "Take a breath, speak from confidence" }
+      ]
+    },
+    {
+      "id": "call",
+      "title": "In the call",
+      "items": [
+        { "key": "call1", "label": "Open with your 'why this role' framing" },
+        { "key": "call2", "label": "Lead with metrics and scope on operational answers" },
+        { "key": "call3", "label": "Tie one answer back to a published value or priority" },
+        { "key": "call4", "label": "Ask 2 or 3 prepared questions" },
+        { "key": "call5", "label": "Ask about timeline and next steps" },
+        { "key": "call6", "label": "Thank [INTERVIEWER], confirm availability" }
+      ]
+    },
+    {
+      "id": "after",
+      "title": "After",
+      "items": [
+        { "key": "after1", "label": "Send a thank-you note within 24 hours" },
+        { "key": "after2", "label": "Note what you learned about fit" },
+        { "key": "after3", "label": "Capture topics and gaps for the next round" }
+      ]
+    }
+  ]
+}
