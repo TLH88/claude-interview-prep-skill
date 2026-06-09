@@ -44,7 +44,7 @@ You don't have to set everything up first. If your project is empty or sparse, t
 ## Tips
 
 - The richer your project content, the more the output sounds like *you* rather than generic AI. A resume alone gives generic results; resume + reference doc + recommendations + writing samples produces output in your voice.
-- Give the interviewer's name when you have it — it gets used in the brief.
+- Give the interviewer's name and role (recuiter, hiring manager, etc.) when you have it — it gets used in the brief.
 - Want a light or brand-colored theme? Mention it when you invoke.
 - The skill never invents metrics or claims. If your record doesn't back a JD requirement, it flags the gap honestly instead of faking it — fill those before the interview.
 - After the interview, drop notes back into your project so future preps benefit from what you learned.
